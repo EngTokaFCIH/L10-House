@@ -165,5 +165,10 @@ $(document).ready(function(){
 });
 
 $(window).on('load' , function(){
-    $('.loading-page').fadeOut(2500)
+    $('body').css('overflow', 'hidden');
+    $('.loading-page').fadeOut(2500, function(){
+        $('body').css('overflow', 'auto')
+    }
+        
+    )
 })
