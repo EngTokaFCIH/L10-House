@@ -1,0 +1,74 @@
+@use "./../abstracts" as *;
+
+#Services{
+    .box{ 
+        transition-duration: 0.5s;
+        padding: 20px;
+        border-radius: 15px;
+        width: 90%;
+        margin: auto;
+
+        img{
+            width: 50px;
+            height: 50px;
+        }
+        p{
+            // width: 75%;
+            margin: auto;
+
+            a{
+                cursor: pointer;
+            }
+
+            @include respond(450px){
+                width: 100%;
+            }
+            
+            @include respond(650px){
+                width: 75%;
+            }
+
+            @include respond(650px){
+                width: 90%;
+            }
+            
+            @include respond(1250px){
+                width: 80%;
+            }
+        }
+
+        &:hover{
+            background-color: #faf9f6;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            transform: translateY(-8px);
+        }
+    }
+    .watch{
+        position: relative;
+        height: 100%;
+        background-image: url("./../images/video-bg.jpg");
+        height: 300px;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+
+        .container{
+            position: relative;
+            .title::after{
+                background-color: #fff;
+            }
+            i{  transition-duration:1s;
+                font-size: 70px;
+                &:hover{
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        &::before{
+            @include createEle();
+            @include position($t: 0, $l: 0);
+            background: radial-gradient(rgba(104, 183, 3, 0.8), rgba(47, 219, 0, 0.522));
+        }
+    }
+}

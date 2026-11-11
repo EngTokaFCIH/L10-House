@@ -1,0 +1,145 @@
+@use "./../abstracts" as *;
+
+#Home{
+    position: relative;
+    height: 100vh;
+
+    .content{
+        @include respond(850px){
+            height: 100%
+        }
+    }
+
+    .part1{
+        @include center(flex-start);
+
+        @include respond(350px){
+            height: 50%;
+        }
+
+        @include respond(850px){
+            height: 100%;
+        }
+
+        h1{
+            font-size: 65px;
+            color: $firstColor;
+
+            @include respond(350px){
+                font-size: 30px;
+            }
+        }
+
+        #Head-line{
+            margin: 0px;
+
+            .cd-headline{
+                text-align: left;
+                font-size: 20px;
+                color: $secondColor;
+
+                span{
+                    &::after{
+                        background-color: $secondColor;
+                    }
+                }
+            }
+
+        }
+
+        .video-icon{
+            a{
+                background-color: transparent;
+                border-radius: 50%;
+                @include distance(40px , 40px);
+                @include position($p: relative);
+                text-decoration: none;
+                
+                &::before{
+                    @include createEle(0% , 0%);
+                    border-radius: 50%;
+                    background-color: $firstColor;
+                    @include position($t: 50% , $l: 50%);
+                    transform: translate(-50% , -50%);
+                    transition-duration: 0.5s;
+                }
+
+                i{
+                    @include position($p: relative);
+                    color: $secondColor;
+                    transition-duration: 0.5s;
+                    color: $firstColor;
+                }
+                
+                &:hover{
+                    &::before{
+                    @include createEle(100% , 100%);
+                }
+                i{
+                    color: #fff;
+                }
+            }
+            }
+        }
+    }
+
+    .part2{
+        @include center(flex-start);
+
+        @include respond(350px){
+            height: 50%;
+
+            & .item img{
+                max-width: 250px;
+            }
+
+            @include center()
+        }
+
+        @include respond(850px){
+            height: 100%;
+
+            & .item img{
+                max-width: 100%;
+            }
+
+            @include center()
+        }
+    }
+
+    .arrows{
+        @include distance(25px , 25px);
+        @include position($b: 15%, $l: 50% , $z: 3);
+        transform: translateX(-50%);
+        img:not(:first-child){
+            @include position($t: 0, $l: 0);
+        }
+        img{
+            @include distance(30px , 20px);
+
+
+            @for $i from 1 through 3{
+                &:nth-of-type(#{$i}){
+                    animation: arrow#{$i} 2s infinite;
+                }
+            }
+            &:nth-of-type(1){
+                // animation: arrow1 linear 3s infinite;
+            }
+            &:nth-of-type(2){
+                // transform: translateY(20px);
+                // animation: arrow2 linear 3s infinite;
+            }
+            &:nth-of-type(3){
+                // transform: translateY(40px);
+                // animation: arrow3 linear 3s infinite;
+            }
+        }
+    }
+
+    >img{
+        @include position($b: 0 , $l: 0);
+        width: 100%;
+        transform: rotateX(180deg);
+    }
+}

@@ -1,0 +1,91 @@
+@use "./../abstracts" as *;
+
+#Contact-Us {
+    position: relative;
+    background: $firstColor url('./../images/contact-bg.png');
+
+    &::before {
+        @include createEle();
+        @include position($t: 0, $l: 0);
+        background: radial-gradient(rgba(104, 183, 3, 0.8), rgba(48, 93, 0, 0.8));
+    }
+
+    .container {
+        position: relative;
+
+        .title::after {
+            background-color: #fff;
+        }
+
+        .content {
+            >p {
+                text-align: center;
+                color: #fff;
+            }
+            @include respond(450px){
+                div[class*="part"]{
+                    width: 90%;
+                    margin: auto;
+                }
+            }
+            @include respond(850px){
+                div[class*="part"]{
+                    width: 100%;
+                    margin: auto;
+                }
+            }
+            .part1{
+                background-color: #f8f9fa;
+                form{
+                    textarea{
+                        resize: none;
+                        height: 120px;
+                    }
+                    button{
+                        background-color: $secondColor;
+                        color: #fff;
+                    }
+                }
+            }
+            .part2{
+                background-color: #fff;
+                .infos{
+                    @include respond(350px){
+                        p{
+                            width: 85%;
+                        }
+                        h5{
+                            font-size: 16px;
+                        }
+                    }
+                    .info{
+                        i{  
+                            color: $secondColor;
+                        }
+                    }
+                }
+                .icons{
+                    a{
+                        display: block;
+                        border-radius: 50%;
+                        i{
+                            width: 40px;
+                            height: 40px;
+                            font-size: 16px;
+                            color: #fff;
+                        }
+                        &:nth-of-type(1){
+                            background-color: #0045b5;
+                        }
+                        &:nth-of-type(2){
+                            background-color: #c52661;
+                        }
+                        &:nth-of-type(3){
+                            background-color: #f70000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

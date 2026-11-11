@@ -1,0 +1,364 @@
+@use './variables' as *;
+@use './mixens' as *;
+
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: linear-gradient(to right, rgb(238, 242, 243), rgb(142, 158, 171));
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $firstColor;
+        border-radius: 10px;
+    }
+
+    .top{
+        cursor: pointer;
+        @include position($p:fixed, $t: 50% , $r: -8%, $z: 1000);
+        background-color: #76A244;
+        width: fit-content;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        transition-duration: 0.3s;
+        &.visible{
+            @include position($p:fixed, $t: 50% , $r: -4.5%, $z: 1000);
+        }
+        &:hover{
+            right: 0%;
+        }
+    }
+}
+
+body.popup-open {
+    overflow: hidden;
+}
+
+
+p {
+    color: #555;
+}
+
+.firstColor {
+    color: $firstColor;
+}
+
+.secondColor {
+    color: $secondColor;
+}
+
+::selection {
+    color: #fff;
+    background-color: $firstColor;
+}
+
+.title {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+
+    &::after {
+        @include createEle(30%, 3px);
+        background-color: $secondColor;
+        @include position($l: 50%, $b: -10px);
+        transform: translateX(-50%);
+        border-radius: 10px;
+        transition-duration: 0.5s;
+    }
+}
+
+#Language-Sectors {
+    .part1 {
+        &:hover {
+            .title::after {
+                width: 80%;
+            }
+        }
+    }
+
+    .part2 {
+        &:hover {
+            .title::after {
+                width: 80%;
+            }
+        }
+
+        .owl-carousel .owl-dots{
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            column-gap: 9px;
+            transform: translateX(-50%);
+            position: absolute;
+            left: 50%;
+        }
+
+        .owl-carousel .owl-dot,
+        .owl-carousel .owl-nav .owl-next,
+        .owl-carousel .owl-nav .owl-prev {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: #EE5E00;
+            opacity: 0.8;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+    }
+}
+
+section:not(#Language-Sectors) {
+    &:hover {
+        .title::after {
+            width: 80%;
+        }
+    }
+}
+
+.popup {
+    & ::selection {
+                    background-color: #EE5E00;
+    }
+    @include position($p: fixed, $t: 0, $l: 0, $z: 1000);
+    background-color: rgba(67, 30, 5, 0.3019607843);
+    backdrop-filter: blur(10px);
+    overflow: auto;
+    height: 100%;
+    display: none;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $secondColor;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+    }
+
+    .box {
+        background-color: #fff;
+
+        @include respond(350px) {
+            width: 90%;
+        }
+
+        @include respond(650px) {
+            width: 75%;
+        }
+
+        @include respond(1050px) {
+            width: 75%;
+        }
+
+        width: 75%;
+        margin: 50px auto;
+        height: max-content;
+        box-shadow: 0 0 5px #EE5E00;
+
+        .head {
+            border-bottom: solid rgba($color: #EE5E00, $alpha: .3);
+            @include position($p: relative);
+
+            i {
+                @include position($t: 15px, $r: 15px);
+                font-size: 14px;
+                cursor: pointer;
+            }
+        }
+
+        .body {
+            h2 {
+                @include respond(350px) {
+                    font-size: 18px;
+                }
+            }
+
+            section {
+                ol {
+                    li {
+                        &::marker {
+                            color: $secondColor;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-popup-name="video"] {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        .box {
+            position: relative;
+            top: 15%;
+            width: 600px;
+
+            @include respond(350px) {
+                width: 330px;
+            }
+
+            @include respond(650px) {
+                width: 550px;
+            }
+
+            background-color: #000;
+            box-shadow: none;
+
+            i {
+                @include position($t: -10%, $r: 0);
+                color: #fff;
+                cursor: pointer;
+            }
+
+            iframe {
+                height: 338px;
+
+                @include respond(350px) {
+                    height: 300px;
+                }
+
+                @include respond(650px) {
+                    height: 350px;
+                }
+            }
+        }
+    }
+
+    &[data-popup-name="sectors"] {
+        &::-webkit-scrollbar-thumb {
+            background-color: $firstColor;
+        }
+
+        .box {
+            box-shadow: 0 0 5px #76A244;
+
+            @include respond(350px) {
+                width: 90%;
+            }
+
+
+            .head {
+                i {
+                    color: $firstColor;
+                }
+
+                border-bottom: solid rgba($color: $firstColor, $alpha: .3);
+            }
+
+            .part {
+
+                .item {
+                    background-color: #ebfbee;
+
+                    img {
+                        width: 70px;
+                    }
+
+                    p {
+                        background-color: #dfeee2;
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-popup-name="languages"] {
+        overflow-x: hidden;
+
+        .box {
+            width: 25%;
+            @include respond(350px){
+                width: 80%;
+            }
+            @include respond(650px){
+                width: 60%;
+            }
+            @include respond(850px){
+                width: 45%;
+            }
+            @include respond(1050px){
+                width: 25%;
+            }
+            @include position($t: 0, $r: 0);
+            margin: auto;
+            border-radius: 0px;
+            border-top-left-radius: 10px;
+            transform: translateX(100%);
+            transition-duration: 0.5s;
+
+            >i {
+                @include position($t: 15px, $r: 15px);
+                cursor: pointer;
+                color: $firstColor;
+            }
+
+            .section:nth-of-type(odd) {
+                & ::selection {
+                    background-color: #76A244;
+                }
+
+                h3 {
+                    position: relative;
+                    color: $firstColor;
+
+                    &::after {
+                        @include createEle(30%, 3px);
+                        @include position($b: -5px, $l: 0);
+                        background-color: currentColor;
+                        border-radius: 15px;
+                    }
+                }
+
+                i {
+                    color: $firstColor;
+                }
+            }
+
+            .section:nth-of-type(even) {
+                & ::selection {
+                    background-color: #EE5E00;
+                }
+
+                h3 {
+                    color: $secondColor;
+                    position: relative;
+
+                    &::after {
+                        @include createEle(30%, 3px);
+                        @include position($b: -5px, $l: 0);
+                        background-color: currentColor;
+                        border-radius: 15px;
+                    }
+                }
+
+                i {
+                    color: $secondColor;
+                }
+            }
+
+            &.show {
+                transform: translateX(0%);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $firstColor;
+            }
+        }
+    }
+}

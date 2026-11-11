@@ -1,0 +1,60 @@
+@use "./../abstracts" as *;
+
+#Why-Us{
+    & ::selection{
+        background-color: $secondColor;
+    }
+    .item{
+        background-color: $secondColor;
+        @include distance(350px, 450px);
+        margin: auto;
+        @include respond(350px){
+            @include distance(280px, 450px);
+        }
+        @include respond(650px){
+            @include distance(320px, 450px);
+        }
+        @include respond(850px){
+            @include distance(330px, 450px);
+        }
+        @include respond(1050px){
+            @include distance(initial, 450px);
+        }
+        &:hover{
+            div[class*='box']{
+                transform: translate(-10px , 10px);
+            }
+        }
+        div[class*='box']{
+            @include distance(100% , 100%);
+            transition-duration: 0.5s;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            @include center($jc: flex-end, $ai: flex-start, $d: column);
+            color: #fff;
+            overflow: hidden;
+            &::before{
+                @include createEle(100% , 100%);
+                @include position($t: 0, $l: 0);
+                background: linear-gradient(0deg, #1e2022 0%, transparent 75%);
+            }
+
+            .content{
+                position: relative;
+        
+                p{
+                    color: #fff;
+                }
+            }
+        }
+        .box1{
+            background-image: url('../images/best.jpg');
+        }
+        .box2{
+            background-image: url('../images/solutions.jpg');
+        }
+        .box3{
+            background-image: url('../images/teamwork.jpg');
+        }
+}}

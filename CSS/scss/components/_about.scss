@@ -1,0 +1,42 @@
+@use "./../abstracts" as *;
+
+#About{
+    .content{
+        .part1{
+            @include center();
+            @include respond(350px){
+                .item{
+                    width: 100%;
+                }
+            }
+            @include respond(850px){
+                .item{
+                    width: 80%;
+                }
+            }
+            @include respond(1050px){
+                .item{
+                    width: 100%;
+                }
+            }
+        }
+        .part2{
+            @include center();
+            @include respond(350px){
+                .item{
+                    width: 100%;
+                }
+            }
+            @include respond(850px){
+                .item{
+                    width: 80%;
+                }
+            }
+            @include respond(1050px){
+                .item{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
