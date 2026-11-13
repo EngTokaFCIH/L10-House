@@ -24,6 +24,7 @@ body {
         border-top-left-radius: 10px;
         transition-duration: 0.3s;
         &.visible{
+            @include position($p:fixed, $t: 50% , $r: -4%, $z: 1000);
             @include respond(350px){
                 @include position($p:fixed, $t: 50% , $r: -16%, $z: 1000);
             }
