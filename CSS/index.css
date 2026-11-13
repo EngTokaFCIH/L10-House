@@ -24,6 +24,14 @@ body .top {
   border-top-left-radius: 10px;
   transition-duration: 0.3s;
 }
+body .top.visible {
+  position: fixed;
+  top: 50%;
+  right: -4%;
+  bottom: initial;
+  left: initial;
+  z-index: 1000;
+}
 @media (max-width: 1300px) {
   body .top.visible {
     position: fixed;
