@@ -14,7 +14,7 @@ body .top {
   cursor: pointer;
   position: fixed;
   top: 50%;
-  right: -8%;
+  right: -100%;
   bottom: initial;
   left: initial;
   z-index: 1000;
@@ -24,13 +24,35 @@ body .top {
   border-top-left-radius: 10px;
   transition-duration: 0.3s;
 }
-body .top.visible {
-  position: fixed;
-  top: 50%;
-  right: -4.5%;
-  bottom: initial;
-  left: initial;
-  z-index: 1000;
+@media (max-width: 1300px) {
+  body .top.visible {
+    position: fixed;
+    top: 50%;
+    right: -16%;
+    bottom: initial;
+    left: initial;
+    z-index: 1000;
+  }
+}
+@media (min-width: 577px) and (max-width: 1300px) {
+  body .top.visible {
+    position: fixed;
+    top: 50%;
+    right: -8%;
+    bottom: initial;
+    left: initial;
+    z-index: 1000;
+  }
+}
+@media (min-width: 769px) and (max-width: 1300px) {
+  body .top.visible {
+    position: fixed;
+    top: 50%;
+    right: -6%;
+    bottom: initial;
+    left: initial;
+    z-index: 1000;
+  }
 }
 body .top:hover {
   right: 0%;
@@ -110,6 +132,9 @@ p {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+#Language-Sectors .part2 .owl-carousel .owl-dot.active {
+  background-color: #76A244;
 }
 
 section:not(#Language-Sectors):hover .title::after {
@@ -535,8 +560,20 @@ nav.navbar.scrolled {
   background-color: #ffffff;
   box-shadow: rgb(118, 162, 68) 0px 10px 20px -10px;
 }
-nav.navbar.scrolled .navbar-brand {
-  width: 8%;
+@media (max-width: 1300px) {
+  nav.navbar.scrolled .navbar-brand {
+    width: 25%;
+  }
+}
+@media (min-width: 769px) and (max-width: 1300px) {
+  nav.navbar.scrolled .navbar-brand {
+    width: 20%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1300px) {
+  nav.navbar.scrolled .navbar-brand {
+    width: 12%;
+  }
 }
 
 .navbar-nav .nav-link.active,

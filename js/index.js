@@ -38,6 +38,23 @@ $(".popup .box").click(function(e){
     e.stopPropagation();
 })
 
+$('.arrows').on('click' , function(e){
+    e.preventDefault();
+
+    let sectionId = $(this).attr('href'),
+    $section = $(sectionId),
+    $sectionTop = $section.offset().top,
+    $sectionBottom = $sectionTop + $section.outerHeight(true),
+    navHeight = $('nav').outerHeight(true);
+
+    targetScrollY = $sectionTop - navHeight;
+
+    window.scrollTo({
+        top: targetScrollY,
+        behavior: "smooth"
+    })    
+})
+
 $('.nav-link').on('click' , function(e){
     e.preventDefault();
 
@@ -80,9 +97,9 @@ $(window).scroll(function(e){
                 $link.addClass('visible')
             }else{
                 $link.removeClass('visible')   
-            }
-             
+            }  
         }
+        
     });
     
 });
