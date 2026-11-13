@@ -170,6 +170,10 @@ section:not(#Language-Sectors):hover .title::after {
 }
 .popup .box {
   background-color: #fff;
+  width: 75%;
+  margin: 50px auto;
+  height: max-content;
+  box-shadow: 0 0 5px #EE5E00;
 }
 @media (max-width: 1300px) {
   .popup .box {
@@ -185,12 +189,6 @@ section:not(#Language-Sectors):hover .title::after {
   .popup .box {
     width: 75%;
   }
-}
-.popup .box {
-  width: 75%;
-  margin: 50px auto;
-  height: max-content;
-  box-shadow: 0 0 5px #EE5E00;
 }
 .popup .box .head {
   border-bottom: solid rgba(238, 94, 0, 0.3);
@@ -300,7 +298,12 @@ section:not(#Language-Sectors):hover .title::after {
 }
 @media (max-width: 1300px) {
   .popup[data-popup-name=languages] .box {
-    width: 80%;
+    width: 92%;
+  }
+}
+@media (min-width: 371px) and (max-width: 1300px) {
+  .popup[data-popup-name=languages] .box {
+    width: 70%;
   }
 }
 @media (min-width: 577px) and (max-width: 1300px) {
@@ -315,7 +318,7 @@ section:not(#Language-Sectors):hover .title::after {
 }
 @media (min-width: 992px) and (max-width: 1300px) {
   .popup[data-popup-name=languages] .box {
-    width: 25%;
+    width: 35%;
   }
 }
 .popup[data-popup-name=languages] .box {
